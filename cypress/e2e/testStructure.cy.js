@@ -40,8 +40,33 @@ describe('Context : My First Tests', () => {
 
         cy.visit('/registration_form');
         cy.get(':nth-child(10) > a').click();
-      
 
+
+
+    })
+
+    it('Test2', () => {
+
+        expect(false).to.equal(false);
+
+    })
+
+
+    it('Test3', () => {
+
+        expect(false).not.to.equal(false);
+
+    })
+
+    it('Test4', () => {
+
+        expect(5).to.equal(5);
+
+    })
+
+    it('Test4', () => {
+
+        expect(5).to.equal('5'==5);
 
     })
 

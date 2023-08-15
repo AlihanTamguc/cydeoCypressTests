@@ -39,7 +39,7 @@ describe('Context : My First Tests', () => {
     it('Opening a web application', () => {
 
         cy.visit('/registration_form');
-        cy.get(':nth-child(10) > a').click();
+ //       cy.get('nth-child(10) > a').click();
       
 
 

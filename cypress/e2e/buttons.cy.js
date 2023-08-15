@@ -20,7 +20,8 @@ describe('Context : My First Tests', () => {
     it('Check different button actions', () => {
 
 
-
+cy.contains('Button 2').should('be.visible').click();
+cy.contains('Clicked on button two!').should('be.visible');
 
 
 

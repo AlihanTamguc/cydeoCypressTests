@@ -17,7 +17,7 @@ describe("Input Forms Tests", () => {
      * Math.floor : makes it a whole number
      */
     const email = `formtest${Math.floor(
-      1000 + Math.random() * 9000,
+      1000 + Math.random() * 9000
     )}@cydeo.com`;
 
     cy.get('input[name="email"]').type(email);
@@ -68,58 +68,31 @@ describe("Input Forms Tests", () => {
     });
   });
 
-
-
-
   it.skip("Check selection of a single", () => {
-   
     cy.get('select[name="job_title"]').select("SDET");
     // assert that dropdown has correct text after selecting
-    cy.get('select[name="job_title"]').contains('SDET');
-
+    cy.get('select[name="job_title"]').contains("SDET");
   });
-
-
 
   it("Check selection of all select dropdowns options ", () => {
-   // we will provide our test data through fixtures folder as JSON object, then use that data to verify select values 
-   
-   cy.fixture('departments').then((departments) => {
-    // Get all options in the menu, iterate through these options one by one 
+    // we will provide our test data through fixtures folder as JSON object, then use that data to verify select values
 
-    cy.get('select[name="department"] > option').each((option , index ) => {
-      // get each option text
+    cy.fixture("departments").then((departments) => {
+      // Get all options in the menu, iterate through these options one by one
 
-      const optionText = option.text();
-   //   cy.log(optionText);
-    //  cy.log(index);
-    //  cy.log(departments[index]+` index no : ${index}`);
+      cy.get('select[name="department"] > option').each((option, index) => {
+        // get each option text
 
-    cy.get('select[name="department"]').select(optionText)
-    .should('have.value', option.val()).contains(departments[index]);
+        const optionText = option.text();
+        //   cy.log(optionText);
+        //  cy.log(index);
+        //  cy.log(departments[index]+` index no : ${index}`);
 
-
-    })
-
-
-
-   })
-
-
-
-
+        cy.get('select[name="department"]')
+          .select(optionText)
+          .should("have.value", option.val())
+          .contains(departments[index]);
+      });
+    });
   });
-
-
-
-
-
-
-
-
-
-
-
-
-
 });
